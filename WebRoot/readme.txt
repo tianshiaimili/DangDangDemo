@@ -5,3 +5,5 @@
 发布的时候 注意jsp 这个jar的引用 因为在tomcat下已经包含 会引起冲突 注意
 
 在地址栏输入 http://localhost:8080/dangdang2 会跳转
+
+https://github.com/tianshiaimili/DangDangDemo.git
