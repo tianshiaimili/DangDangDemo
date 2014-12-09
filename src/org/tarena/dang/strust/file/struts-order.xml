@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+	<struts>
+	<package name="dang-order" namespace="/order"
+				extends="dang-default">
+		<interceptors>
+				<interceptor name="checkLoginState"
+				class="org.tarena.dang.interceptor.CheckLoginState"/>
+					<interceptor-stack name="orderStack">
+						<interceptor-ref name="checkLoginState"/>
+						<interceptor-ref name="defaultStack"/>
+				</interceptor-stack>
+			</interceptors>
+			<!-- 设置默认调用的拦截器,原来是defaultStack -->
+			<default-interceptor-ref name="orderStack"/>
+		<global-results>
+			<result name="login">/dangdang2/user/login_form.jsp</result>
+		</global-results>
+		<action name="findAllReceiveAddress"
+			class="org.tarena.dang.action.order.FindAllreceiveAddressAction">
+			<result name="login">/user/login_form.jsp</result>
+			<result>/order/address_form.jsp</result>
+		</action>
+		<action name="saveOrderAndAddress"
+			class="org.tarena.dang.action.order.SaveOrderAndAddressAction">
+			<result>/order/order_ok.jsp</result>
+		</action>
+		<action name="findReceiveAddressById"
+			class="org.tarena.dang.action.order.FindReceiveAddressByIdAction">
+			<result type="json">
+				<param name="root">address</param>
+			</result>
+		</action>
+
+	</package>
+</struts>

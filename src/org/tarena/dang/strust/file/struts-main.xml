@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+	<struts>
+	<package name="dang-main" namespace="/main"
+				extends="dang-default">
+		<action name="news"
+		class="org.tarena.dang.action.main.NewsAction">
+			<result>/main/new.jsp</result>
+		</action>
+		<action name="category" 
+		class="org.tarena.dang.action.main.CategoryAction">
+			<result>/main/category.jsp</result>
+		</action>
+		<action name="recommend"
+		class="org.tarena.dang.action.main.RecommendAction">
+			<result>/main/recommend.jsp</result>
+		</action>
+		<action name="booklist"
+		class="org.tarena.dang.action.main.BookListAction">
+			<result>/main/book_list.jsp</result>
+		</action>
+		<action name="hot"
+		class="org.tarena.dang.action.main.HotAction">
+			<result>/main/hot.jsp</result>
+		</action>
+		<action name="hotNew"
+		class="org.tarena.dang.action.main.HotNewAction">
+			<result>/main/hotNew.jsp</result>
+		</action>
+	</package>
+</struts>

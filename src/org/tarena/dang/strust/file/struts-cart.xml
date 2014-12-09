@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+	<struts>
+	<package name="dang-cart" namespace="/cart" 
+				 extends="dang-default">
+		<interceptors>
+				<interceptor name="checkLoginState"
+				class="org.tarena.dang.interceptor.CheckLoginState"/>
+				<interceptor-stack name="cartStack">
+						<interceptor-ref name="checkLoginState"/>
+						<interceptor-ref name="defaultStack"/>
+				</interceptor-stack>
+		</interceptors> 
+
+		<action name="buy"
+			class="org.tarena.dang.action.cart.BuyAction">
+			<result type="json">
+				<param name="root">ok</param>
+			</result>	
+		</action>
+		<action name="list"
+			class="org.tarena.dang.action.cart.CartListAction">
+			<result>/cart/cart_list.jsp</result>	
+		</action>
+		<action name="modify"
+			class="org.tarena.dang.action.cart.CartModifyAction">
+			<result type="redirectAction">list</result>	
+		</action>
+		<action name="delete"
+			class="org.tarena.dang.action.cart.CartDeleteandRecoveryAction">
+			<result type="redirectAction">list</result>
+		</action>
+		<action name="recovery"
+			class="org.tarena.dang.action.cart.CartDeleteandRecoveryAction">
+			<result type="redirectAction">list</result>
+		</action>
+		<action name="orderList"
+			class="org.tarena.dang.action.cart.OrderListAction">
+			<interceptor-ref name="cartStack"/>
+			<result name="login">/user/login_form.jsp</result>
+			<result>/order/order_info.jsp</result>
+		</action>
+	</package>
+</struts>

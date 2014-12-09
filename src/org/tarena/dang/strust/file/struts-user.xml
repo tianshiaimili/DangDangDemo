@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="dang-user" namespace="/user" extends="dang-default">
+		<action name="register" class="org.tarena.dang.action.user.RegisterAction">
+			<result name="verify">/user/verify_form.jsp</result>
+		</action>
+		<action name="validEmail" class="org.tarena.dang.action.user.ValidEmailAction">
+			<result type="json">
+				<param name="root">ok</param>
+			</result>
+		</action>
+		<action name="validNickname" class="org.tarena.dang.action.user.VaildNicknameAction">
+			<result type="json">
+				<param name="root">ok</param>
+			</result>
+		</action>
+		<action name="validEmailCode" class="org.tarena.dang.action.user.ValidEmailCodeAction">
+			<result type="json">
+				<param name="root">codeResult</param>
+			</result>
+		</action>
+		<action name="register_ok" class="org.tarena.dang.action.user.Register_okAction">
+			<result>/user/register_ok.jsp</result>
+		</action>
+		<action name="checkUser" class="org.tarena.dang.action.user.CheckUserAction">
+			<result type="redirect">/main/main.jsp</result>
+			<result name="check">/user/verify_form.jsp</result>
+			<result name="back">/user/login_form.jsp</result>
+		</action>
+
+		<action name="code" class="org.tarena.dang.util.CodeAction">
+			<result type="stream">
+				<param name="inputName">input</param>
+				<param name="contentType">image/jpeg</param>
+			</result>
+		</action>
+		<action name="checkNumber" class="org.tarena.dang.util.CheckCodeAction">
+			<result name="check" type="json">
+				<param name="root">result</param>
+			</result>
+		</action>
+		<action name="userExit" class="org.tarena.dang.action.user.UserExitAction">
+			<result>/user/login_form.jsp</result>
+		</action>
+	</package>
+</struts>

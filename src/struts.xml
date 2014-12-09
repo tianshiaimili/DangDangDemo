@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.ui.theme" value="simple"></constant>
+	<constant name="struts.action.extension" value="do,action,,"></constant>
+	<include file="org/tarena/dang/strust/file/struts-user.xml" />
+	<include file="org/tarena/dang/strust/file/struts-cart.xml" />
+	<include file="org/tarena/dang/strust/file/struts-main.xml" />
+	<include file="org/tarena/dang/strust/file/struts-order.xml" />
+	<include file="org/tarena/dang/strust/file/struts-admin.xml" />
+	<package name="dang-default" extends="json-default">
+		<interceptors>
+			<interceptor name="transaction"
+				class="org.tarena.dang.interceptor.TransactionInterceptor" />
+			<interceptor name="checkLoginState"
+				class="org.tarena.dang.interceptor.CheckLoginState" />
+			<!-- interceptor-stack是一堆拦截器组成的一个拦截器栈。也可以当拦截器使用。 interceptor-ref是指定某个action使用哪一个拦截器， 
+				可以是一个interceptor,也可以是一个interceptor-stack。 -->
+			<interceptor-stack name="dangStack">
+				<interceptor-ref name="transaction" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<!-- 设置默认调用的拦截器,原来是defaultStack -->
+		<default-interceptor-ref name="dangStack" />
+
+		<!-- 这里主要是针对 在地址栏输入 http://localhost:8080/dangdang2 即可访问 -->
+		<action name="" class="org.tarena.dang.action.visitors.VisitorsAction">
+			<result name="success" type="redirect">
+			    
+				/main/main.jsp
+			</result>
+
+		</action>
+
+	</package>
+
+</struts>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="org.tarena.dang.pojo.Category" table="d_category" catalog="dangdang">
+        <id name="id" type="integer">
+            <column name="id" />
+            <generator class="identity"></generator>
+        </id>
+        <property name="turn" type="integer">
+            <column name="turn" not-null="true" />
+        </property>
+        <property name="enName" type="string">
+            <column name="en_name" length="200" not-null="true" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="200" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="200" />
+        </property>
+        <property name="parentId" type="integer">
+            <column name="parent_id" />
+        </property>
+        <!--formula将属性与子查询映射
+        	1.用括号括起来
+        	2.括号内是sql
+        	3.表名使用别名
+        -->
+        <property name="pnum" type="integer"
+        	formula="(select count(dcp.product_id) from d_category_product dcp where dcp.cat_id=id)">
+        </property>
+        
+        <!-- sublist映射,用一对多关系加载 -->
+        <list name="sublist">
+        	<!-- 指定关联的外键字段 -->
+        	<key column="parent_id"></key>
+        	<!-- 指定list存储元素的索引字段和起始值 -->
+        	<list-index column="turn" base="1">
+        	</list-index>
+        	<!-- 指明加载关系和对方类型 -->
+        	<one-to-many 
+        		class="org.tarena.dang.pojo.Category"/>
+        </list>
+        <!--采用多对多加载相关联的Product信息-->
+        <set name="pros" table="d_category_product">
+        	<key column="cat_id"></key>
+        	<many-to-many column="product_id" 
+        		class="org.tarena.dang.pojo.Product"/>
+        </set>
+        
+    </class>
+</hibernate-mapping>
