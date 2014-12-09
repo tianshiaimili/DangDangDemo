@@ -38,14 +38,14 @@
         <a href="#"><img src="resources/images/logo2.png" alt="Simpla Admin logo" width="150" height="53" align="middle" id="logo" /></a></p>
       <div id="profile-links" style="color:white;"> Hello,<s:property value="#session.admin.name"/><br />
         <br />
-        <a href="#" title="View the Site"></a>  <a href="/dangdang/admin/login.jsp" title="Sign Out" style="color:white;">安全退出</a> </div>
+        <a href="#" title="View the Site"></a>  <a href="/dangdang2/admin/login.jsp" title="Sign Out" style="color:white;">安全退出</a> </div>
       <ul id="main-nav">
         <!-- Accordion Menu -->
         <li> <a href="#" class="nav-top-item current">
           <!-- Add the class "current" to current menu item -->人员管理</a>
           <ul>
-            <li><a class="current" href=""/dangdang/admin/findAllAdmin.action"">管理员管理</a></li>
-            <li><a  href="/dangdang/admin/findAllUser.action">用户管理</a></li>
+            <li><a class="current" href=""/dangdang2/admin/findAllAdmin.action"">管理员管理</a></li>
+            <li><a  href="/dangdang2/admin/findAllUser.action">用户管理</a></li>
             <!-- Add class "current" to sub menu items also -->
           </ul>
         </li>

@@ -6,4 +6,8 @@
 
 在地址栏输入 http://localhost:8080/dangdang2 会跳转
 
+登录后台 http://localhost:8080/dangdang2/admin/login.jsp
+
+admin 123123
+
 https://github.com/tianshiaimili/DangDangDemo.git
