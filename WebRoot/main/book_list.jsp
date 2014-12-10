@@ -16,7 +16,7 @@
 				$(".goumai").click(function(){
 					var id=$(this).attr("id");
 					$.post(
-					"/dangdang2/cart/buy.action",
+					"../cart/buy.action",
 					{"id":id},
 					function(data){
 						if(data){

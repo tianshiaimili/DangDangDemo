@@ -6,9 +6,11 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.cfg.Configuration;
 import org.junit.Test;
 import org.tarena.dang.pojo.Category;
 import org.tarena.dang.util.HibernateUtil;
+import org.xml.sax.EntityResolver;
 
 public class HibernateTest {
 	@Test
@@ -48,4 +50,17 @@ public class HibernateTest {
 	public void testTime(){
 		System.out.println(System.currentTimeMillis());
 	}
+	
+	@Test
+	public void testConnect(){
+		
+		Logger logger = Logger.getLogger(HibernateTest.class);
+		String CONFIG_FILE_LOCATION = "org/tarena/dang/strust/file/hibernate.cfg.xml";
+		
+		Configuration configuration = new Configuration();
+		configuration.configure(CONFIG_FILE_LOCATION);
+		
+	}
+	
+	
 }

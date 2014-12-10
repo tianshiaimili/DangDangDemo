@@ -4,11 +4,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>当当图书 – 全球最大的中文网上书店</title>
-		<link href="/dangdang2/css/book.css" rel="stylesheet" type="text/css" />
-		<link href="/dangdang2/css/second.css" rel="stylesheet" type="text/css" />
-		<link href="/dangdang2/css/secBook_Show.css" rel="stylesheet"
+		<link href="../css/book.css" rel="stylesheet" type="text/css" />
+		<link href="../css/second.css" rel="stylesheet" type="text/css" />
+		<link href="../css/secBook_Show.css" rel="stylesheet"
 			type="text/css" />
-		<link href="/dangdang2/css/shopping_vehicle.css" rel="stylesheet"
+		<link href="../css/shopping_vehicle.css" rel="stylesheet"
 			type="text/css" />
 		<script type="text/javascript" src="../js/jquery-1.4.3.js"></script>
 		<script type="text/javascript">
@@ -93,7 +93,7 @@
 										onclick="location='modify.action?id=<s:property value="#item.product.id"/>&qty='+document.getElementById('delnum_<s:property value="#item.product.id"/>').value;">变更</a>
 								</td>
 								<td>
-									<a href="javascript:;" onclick="location='/dangdang2/cart/delete.action?id=<s:property value="#item.product.id"/>';" >删除</a>
+									<a href="javascript:;" onclick="location='../cart/delete.action?id=<s:property value="#item.product.id"/>';" >删除</a>
 								</td>
 							</tr>
 						</s:if>
@@ -123,7 +123,7 @@
 							</span>
 						</div>
 						<div id="balance" class="balance">
-							<a name='checkout' href='/dangdang2/cart/orderList.action'> <img
+							<a name='checkout' href='../cart/orderList.action'> <img
 									src="../images/butt_balance.gif" alt="结算" border="0" title="结算" />
 							</a>
 						</div>

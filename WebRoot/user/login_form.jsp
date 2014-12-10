@@ -4,7 +4,7 @@
 	<head>
 		<title>登录 - 当当网</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link rel="stylesheet" href="/dangdang2/admin/resources/css/style.css"
+		<link rel="stylesheet" href="../admin/resources/css/style.css"
 			type="text/css" media="screen" />
 		<link href="../css/login.css" rel="stylesheet" type="text/css" />
 		<link href="../css/page_bottom.css" rel="stylesheet" type="text/css" />
@@ -103,7 +103,7 @@
 							登录当当网
 						</h3>
 
-						<form method="post" action="/dangdang2/user/checkUser.action"
+						<form method="post" action="../user/checkUser.action"
 							id="ctl00">
 							<ul>
 								<li>

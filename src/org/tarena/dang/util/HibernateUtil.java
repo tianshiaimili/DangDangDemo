@@ -1,8 +1,14 @@
 package org.tarena.dang.util;
 
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.cfg.Configuration;
+
+import com.mysql.jdbc.Connection;
 
 /**
  * Configures and provides access to Hibernate sessions, tied to the
@@ -25,15 +31,20 @@ public class HibernateUtil {
     private  static Configuration configuration = new Configuration();
     private static org.hibernate.SessionFactory sessionFactory;
     private static String configFile = CONFIG_FILE_LOCATION;
+    private static Logger mLogger = Logger.getLogger(HibernateUtil.class);
 
 	static {
     	try {
 			configuration.configure(configFile);
 			sessionFactory = configuration.buildSessionFactory();
+			System.out.println("-------------------------------------------------");
+//			testConnection();
+//			configuration.get
 		} catch (Exception e) {
 			System.err
 					.println("%%%% Error Creating SessionFactory %%%%");
 			e.printStackTrace();
+			mLogger.error("**********error == "+ e.getMessage());
 		}
     }
     private HibernateUtil() {
@@ -48,7 +59,7 @@ public class HibernateUtil {
      */
     public static Session getSession() throws HibernateException {
         Session session = (Session) threadLocal.get();
-
+        mLogger.error("session = "+session);
 		if (session == null || !session.isOpen()) {
 			if (sessionFactory == null) {
 				rebuildSessionFactory();
@@ -116,4 +127,32 @@ public class HibernateUtil {
 		return configuration;
 	}
 
+	
+	///test connection on sae
+	public static void testConnection(){
+		   
+		   //连接MySql数据库，用户名和密码都是root   
+//		     String url = "jdbc:mysql://localhost:3306/dangdang" ;    
+			String url = "jdbc:mysql://w.rdc.sae.sina.com.cn:3307/app_militest1" ;
+		     
+		     String username = "23l2nkyxyn" ;   
+		     String password = "2xi2lzz12zyi05hzw2lm5j21jzklzl5x5kljlw21" ;   
+		     Logger mLogger = Logger.getLogger(HibernateUtil.class);
+		   try{   
+			    //加载MySql的驱动类   
+			    Class.forName("com.mysql.jdbc.Driver") ;
+			    Connection con =    
+			             (Connection) DriverManager.getConnection(url , username , password ) ;  
+			    System.out.println("**********************===  "+con);
+			    mLogger.error("**********************=== "+con);
+			    mLogger.info("**********************=== "+con);
+			    }catch(Exception e){   
+			    System.out.println("找不到驱动程序类 ，加载驱动失败！");   
+			    e.printStackTrace() ;   
+			    mLogger.error("**********************=== "+e.getMessage());
+			    }   
+		
+	}
+	
+	
 }

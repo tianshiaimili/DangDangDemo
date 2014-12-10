@@ -71,7 +71,7 @@
 								class="button_1" name="submit" type="submit" value="取消" />
 						</a>
 
-						<a href="/dangdang2/order/findAllReceiveAddress.action"><input id="btnClientRegister"
+						<a href="../order/findAllReceiveAddress.action"><input id="btnClientRegister"
 								class="button_1" name="submit" type="submit" value="下一步" />
 						</a>
 

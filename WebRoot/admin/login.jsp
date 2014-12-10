@@ -82,7 +82,7 @@
     <a href="#"><img id="logo" src="resources/images/logo.png" alt="Simpla Admin logo" /></a> </div>
   <!-- ���� #logn-top -->
   <div id="login-content">
-    <form id="ct" action="/dangdang2/admin/checkAdmin.action" method="post"  >
+    <form id="ct" action="../admin/checkAdmin.action" method="post"  >
       <div class="notification information png_bg">
         <div> 请输入管理员用户名，密码登陆后台. </div>
       </div>

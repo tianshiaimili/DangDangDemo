@@ -6,7 +6,7 @@
 	 $(function(){
 	 	$("#exit").click(function(){
 	 		$.post(
-	 		"/dangdang2/user/userExit.action"
+	 		"../user/userExit.action"
 	 		);
 	 	});
 	 });
@@ -20,13 +20,13 @@
 					href="#" name="helpcenter" class="head_black12a" target="_blank">帮助</a>
 					| </span> </span>
 			<div class="cart gray4012">
-				<a href="/dangdang2/cart/list.action">购物车</a>
+				<a href="../cart/list.action">购物车</a>
 			</div>
 		</div>
 		<span class="head_toutext" id="logininfo">
 		<b>您好，<s:property value="#session.user.nickname"/>欢迎光临当当网</b>
 		<s:if test="#session.user!=null">
-		[ &nbsp;<a href="/dangdang2/user/userExit.action" class="b" id="exit">登出&nbsp;</a>]
+		[ &nbsp;<a href="../user/userExit.action" class="b" id="exit">登出&nbsp;</a>]
 		</s:if>
 		<s:else>
 		[&nbsp;<a href="../user/login_form.jsp" class="b">登录</a>|<a

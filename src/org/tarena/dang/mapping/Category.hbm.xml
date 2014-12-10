@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="org.tarena.dang.pojo.Category" table="d_category" catalog="dangdang">
+    <class name="org.tarena.dang.pojo.Category" table="d_category">
         <id name="id" type="integer">
             <column name="id" />
             <generator class="identity"></generator>

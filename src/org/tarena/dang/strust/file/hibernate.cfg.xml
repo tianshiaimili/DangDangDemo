@@ -9,21 +9,39 @@
 	<session-factory>
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+
+		
 		<property name="connection.url">jdbc:mysql://localhost:3306/dangdang?useUnicode=true&amp;characterEncoding=utf8</property>
 		<property name="connection.username">root</property>
 		<property name="connection.password">123456</property>
+<!-- ?autoReconnect=true -->
+
 		<!-- 
-		<property name="connection.url">jdbc:mysql://w.rdc.sae.sina.com.cn:3307/app_milihome</property>
-		<property name="connection.username">mjy424x42o</property>
-		<property name="connection.password">4kijxijk5l1mk2zkjk50w5mywj0mml5302yy45mm</property>
+		<property name="connection.url">jdbc:mysql://w.rdc.sae.sina.com.cn:3307/app_militest1</property>
+		<property name="connection.username">23l2nkyxyn</property>
+		<property name="connection.password">2xi2lzz12zyi05hzw2lm5j21jzklzl5x5kljlw21</property>
 		 -->
 		
 		<!-- 
 		<property name="eclipse.connection.profile">dangdang</property>
 		 -->
 		
-		
+		        <!-- C3P0 -->  
+		<!--         
+        <property name="hibernate.c3p0.max_size">3</property>  
+        <property name="hibernate.c3p0.min_size">2</property>  
+        <property name="hibernate.c3p0.timeout">5000</property>  
+        <property name="hibernate.c3p0.max_statements">100</property>  
+        <property name="hibernate.c3p0.idle_test_period">3000</property>  
+        <property name="hibernate.c3p0.acquire_increment">2</property>  
+        <property name="hibernate.c3p0.validate">false</property>  
+        <property name="hibernate.c3p0.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>     
+        <property name="hibernate.show_sql">true</property>  
+         -->
 		<property name="show_sql">true</property>
+		
+		
+		
 		<mapping resource="org/tarena/dang/mapping/Book.hbm.xml" />
 		<mapping resource="org/tarena/dang/mapping/Category_Product.hbm.xml" />
 		<mapping resource="org/tarena/dang/mapping/Category.hbm.xml" />

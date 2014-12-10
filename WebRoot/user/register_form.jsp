@@ -4,7 +4,7 @@
 	<head>
 		<title>用户注册 - 当当网</title>
 		<!-- Main Stylesheet -->
-		<link rel="stylesheet" href="/dangdang2/admin/resources/css/style.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="../admin/resources/css/style.css" type="text/css" media="screen" />
 		<!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
 		<link href="../css/login.css" rel="stylesheet" type="text/css" />
 		<link href="../css/page_bottom.css" rel="stylesheet" type="text/css" />

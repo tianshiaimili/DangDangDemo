@@ -59,7 +59,7 @@
 				</select>
 
 			</p>
-			<form name="ctl00" method="post" action="/dangdang2/order/saveOrderAndAddress.action" id="f">
+			<form name="ctl00" method="post" action="../order/saveOrderAndAddress.action" id="f">
 				<input  type="hidden" name="addressId" id="addressId" />
 
 				<table class="tab_login">

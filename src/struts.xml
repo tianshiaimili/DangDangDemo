@@ -4,7 +4,10 @@
 	"http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<!-- <constant name="struts.devMode" value="true" /> -->
+
 	<constant name="struts.devMode" value="true" />
+
 	<constant name="struts.ui.theme" value="simple"></constant>
 	<constant name="struts.action.extension" value="do,action,,"></constant>
 	<include file="org/tarena/dang/strust/file/struts-user.xml" />
@@ -31,10 +34,8 @@
 		<!-- 这里主要是针对 在地址栏输入 http://localhost:8080/dangdang2 即可访问 -->
 		<action name="" class="org.tarena.dang.action.visitors.VisitorsAction">
 			<result name="success" type="redirect">
-			    
 				/main/main.jsp
 			</result>
-
 		</action>
 
 	</package>
